@@ -1,7 +1,9 @@
 define([
-    'backbone'
+    'backbone',
+    'communicator',
+    'models/task'
 ],
-    function (Backbone) {
+    function (Backbone, Communicator, Task) {
         'use strict';
 
         return Backbone.View.extend({
@@ -9,12 +11,12 @@ define([
             events: {
                 'keypress': 'postTask'
             },
-            initialize: function () {
-                console.log("initialize a NewTask View");
-            },
             postTask : function(event){
                 if(event.keyCode === 13){
-                    console.log('ENTERED!');
+                    var task = new Task({title: this.$el.val()});
+                    task.save();
+                    this.collection.add(task);
+                    this.$el.val('');
                 }
             }
         });
