@@ -4,3 +4,17 @@
     margin: 50px auto 0 auto;
     width: 400px;
 }
+
+.tasklist_task {
+  position: relative;
+}
+
+.tasklist_task_remove {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}

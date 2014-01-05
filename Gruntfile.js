@@ -28,21 +28,21 @@ module.exports = function (grunt) {
 
         // watch list
         watch: {
-            
+
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
-            
+
             livereload: {
                 files: [
-                    
+
                     '<%= yeoman.app %>/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/{,**/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,**/}*.js',
                     '{.tmp,<%= yeoman.app %>}/templates/{,**/}*.hbs',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    
+                    '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp}',
+
                     'test/spec/{,**/}*.js'
                 ],
                 tasks: ['exec'],
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
             }
         },
 
-        
+
         // express app
         express: {
             options: {
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
+
 
         // open app and test page
         open: {
@@ -128,13 +128,13 @@ module.exports = function (grunt) {
             ]
         },
 
-        
+
         // compass
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
-                imagesDir: '<%= yeoman.app %>/images',
+                imagesDir: '<%= yeoman.app %>/img',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
                 importPath: 'app/bower_components',
@@ -147,7 +147,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
+
 
         // require
         requirejs: {
@@ -201,9 +201,9 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= yeoman.app %>/img',
                     src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= yeoman.dist %>/img'
                 }]
             }
         },
@@ -251,7 +251,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
+                        'img/{,*/}*.{webp,gif}',
                         'bower_components/requirejs/require.js'
                     ]
                 }]

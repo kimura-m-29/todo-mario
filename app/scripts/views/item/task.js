@@ -8,6 +8,7 @@ define([
         /* Return a ItemView class definition */
         return Backbone.Marionette.ItemView.extend({
             tagName: 'li',
+            className: 'tasklist_task',
             template: TaskTmpl,
             initialize: function () {
                 this.changeFinishedStyle();
@@ -18,6 +19,13 @@ define([
                 'click': 'onClickTask'
             },
             onClickTask: function (event) {
+                var $clickTarget = $(event.target);
+
+                if($clickTarget.hasClass('js-removeTask')){
+                    this.model.destroy();
+                    return false;
+                }
+
                 if (this.model.get('finished')) {
                     this.model.save({'finished': false});
                 } else {
